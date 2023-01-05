@@ -1,7 +1,7 @@
 
 export const validators = {
   required: (value) => value ? undefined : 'Required',
-  checkLength: (value, min = 3, max = 10) => value.length >= min && value.length <= max ? undefined : `Length should be in between ${min} and ${max}`,
+  checkLength: (value, min = 3, max = 10) => !!value && value.toString().length >= min && value.toString().length <= max ? undefined : `Length should be in between ${min} and ${max}`,
   regexPattern: value => value && !/^[A-Za-z\s.-]+$/i.test(value) ? 'Numbers & Special Chars not allowed' : undefined,
   phoneValidator: (value, max = 10) => (!!value && (value.split('')).filter(char => !isNaN(parseInt(char))).length > max) ? `Must be ${max} characters` : undefined,
   isNumber: value => value && isNaN(Number(value)) ? 'Only number allowed' : undefined,
@@ -10,7 +10,7 @@ export const validators = {
   
  export const validateFormData = (formValidations, values) => {
   let errors = []
-  !!formValidations && formValidations.map((data) => {
+  !!formValidations && formValidations.length && formValidations.map((data) => {
     let field = data.field
     let value = values[field]
     data.validator.map((validate) => {
