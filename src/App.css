@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  margin-top: 50px;
+  font-weight: bolder;
 }
 
 .App-logo {
@@ -35,4 +37,38 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+form{
+  width: 300px;
+  background-color: lightgrey;
+  height: auto;
+  padding: 10px 20px;
+  margin: auto;
+}
+
+.formInput, .formSelect{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.formInput, .formSelect label{
+  margin-top: 10px;
+}
+
+.formInput input{
+  height: 20px;
+  padding:5px;
+}
+
+.formSelect select{
+  height: 40px;
+}
+.submitBtn{
+  padding: 10px 20px;
+  background: green;
+  border: none;
+  margin-top: 20px;
+  cursor: pointer;
 }
